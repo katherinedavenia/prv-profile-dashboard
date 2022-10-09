@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
+import Login from '../components/pages/Login';
 
-export default function Home() {
+export default function LoginPage() {
   return (
     <Suspense fallback="Loading...">
-      <div>Home</div>
+      <Login />
     </Suspense>
   );
 }
