@@ -52,7 +52,6 @@ const Navbar = ({
               width: '24px',
               height: 'auto',
               color: '#475266',
-              rotate: '180deg',
             }}
           />
         </Box>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 import randomGradient from 'random-gradient';
-import { Add } from '@mui/icons-material';
+import { Add, Save } from '@mui/icons-material';
 
 const PortfolioSection = () => {
   const [addExperienceisOpen, setAddExperienceisOpen] = useState(false);
@@ -172,37 +172,79 @@ const PortfolioSection = () => {
               p: { xs: '16px 14px', sm: '16px 24px' },
             }}
           >
-            <Typography>Add New Experience</Typography>
-            <Box
-              component="form"
-              sx={{
-                '& > :not(style)': { width: '25ch' },
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <TextField id="filled-basic" label="Position" variant="filled" />
+            <Typography sx={{ fontWeight: 600, fontSize: '20px', mb: '40px' }}>
+              Add New Experience
+            </Typography>
+            <Box component="form" noValidate autoComplete="off">
               <TextField
-                id="filled-basic"
-                label="Company Name"
-                variant="filled"
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                sx={{ mb: '20px' }}
+                fullWidth
+                id="standard-required"
+                label="Position"
+                variant="standard"
               />
               <TextField
-                id="filled-basic"
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                sx={{ mb: '20px' }}
+                fullWidth
+                id="standard-required"
+                label="Company Name"
+                variant="standard"
+              />
+              <TextField
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                sx={{ mb: '20px' }}
+                fullWidth
+                id="standard-date"
                 label="Starting From"
-                variant="filled"
+                variant="standard"
                 type="date"
               />
               <TextField
-                id="filled-basic"
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                sx={{ mb: '20px' }}
+                fullWidth
+                id="standard-date"
                 label="Ending In"
-                variant="filled"
+                variant="standard"
                 type="date"
               />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-              <Button>Save</Button>
-              <Button onClick={() => setAddExperienceisOpen(false)}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'end',
+                mt: '20px'
+              }}
+            >
+              <Button variant="contained" sx={{ mr: '10px' }}>
+                <Save
+                  sx={{
+                    height: '20px',
+                    width: 'auto',
+                    mr: '7px',
+                  }}
+                />
+                Save
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={() => setAddExperienceisOpen(false)}
+              >
                 Cancel
               </Button>
             </Box>
@@ -318,36 +360,68 @@ const PortfolioSection = () => {
               p: { xs: '16px 14px', sm: '16px 24px' },
             }}
           >
-            <Typography>Add New Education</Typography>
-            <Box
-              component="form"
-              sx={{
-                '& > :not(style)': { width: '25ch' },
-              }}
-              noValidate
-              autoComplete="off"
-            >
+            <Typography sx={{ fontWeight: 600, fontSize: '20px', mb: '40px' }}>
+              Add New Education
+            </Typography>
+            <Box component="form" noValidate autoComplete="off">
               <TextField
-                id="filled-basic"
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                sx={{ mb: '20px' }}
+                fullWidth
+                id="standard-basic"
                 label="School Name"
-                variant="filled"
+                variant="standard"
               />
               <TextField
-                id="filled-basic"
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                sx={{ mb: '20px' }}
+                fullWidth
+                id="standard-basic"
                 label="Starting From"
-                variant="filled"
+                variant="standard"
                 type="date"
               />
               <TextField
-                id="filled-basic"
+                required
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                sx={{ mb: '20px' }}
+                fullWidth
+                id="standard-basic"
                 label="Ending In"
-                variant="filled"
+                variant="standard"
                 type="date"
               />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-              <Button>Save</Button>
-              <Button onClick={() => setAddEducationisOpen(false)}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'end',
+                mt: '20px',
+              }}
+            >
+              <Button variant="contained" sx={{ mr: '10px' }}>
+                <Save
+                  sx={{
+                    height: '20px',
+                    width: 'auto',
+                    mr: '7px',
+                  }}
+                />
+                Save
+              </Button>
+              <Button
+                variant="outlined"
+                onClick={() => setAddEducationisOpen(false)}
+              >
                 Cancel
               </Button>
             </Box>
