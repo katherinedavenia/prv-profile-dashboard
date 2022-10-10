@@ -4,6 +4,7 @@ import { AccountCircle, AutoAwesome, Notifications } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 
 const Navbar = ({
+  name,
   bgImage,
   profileIconisOpen,
   setProfileIconisOpen,
@@ -44,7 +45,7 @@ const Navbar = ({
               fontSize: { xs: '20px', sm: '22px' },
             }}
           >
-            Welcome, Katherine!
+            {name ? `Welcome, ${name}!` : 'Welcome!'}
           </Typography>
           <AutoAwesome
             sx={{
