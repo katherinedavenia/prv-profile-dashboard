@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import {
+  Box, Button, TextField, Typography
+} from '@mui/material';
 import { AutoAwesome } from '@mui/icons-material';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
 const DisplayLogin = ({ formik, onLogin }) => {
   const router = useRouter();
@@ -97,6 +100,11 @@ const DisplayLogin = ({ formik, onLogin }) => {
       </Box>
     </>
   );
+};
+
+DisplayLogin.propTypes = {
+  formik: PropTypes.shape(),
+  onLogin: PropTypes.func,
 };
 
 export default DisplayLogin;

@@ -2,7 +2,7 @@ import { AddPhotoAlternate } from '@mui/icons-material';
 import { Box } from '@mui/material';
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
-
+import PropTypes from 'prop-types';
 import useResponsive from '../../lib/useResponsive';
 
 const Avatar = ({ image, onUpload }) => {
@@ -51,6 +51,11 @@ const Avatar = ({ image, onUpload }) => {
       </Box>
     </div>
   );
+};
+
+Avatar.propTypes = {
+  image: PropTypes.string,
+  onUpload: PropTypes.func,
 };
 
 export default Avatar;

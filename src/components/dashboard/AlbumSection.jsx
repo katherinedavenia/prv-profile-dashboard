@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const AlbumSection = ({ albumImages }) => (
   <Box sx={{ pb: '70px' }}>
@@ -39,5 +40,9 @@ const AlbumSection = ({ albumImages }) => (
     </Box>
   </Box>
 );
+
+AlbumSection.propTypes = {
+  albumImages: PropTypes.arrayOf(),
+};
 
 export default AlbumSection;

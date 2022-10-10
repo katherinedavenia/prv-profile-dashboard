@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, Button, Container, Typography } from '@mui/material';
+import {
+  Box, Button, Container, Typography
+} from '@mui/material';
 import { AccountCircle, AutoAwesome, Notifications } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 
@@ -148,7 +150,12 @@ const Navbar = ({
 );
 
 Navbar.propTypes = {
+  name: PropTypes.string,
   bgImage: PropTypes.string,
+  profileIconisOpen: PropTypes.bool,
+  setProfileIconisOpen: PropTypes.func,
+  notificationIconisOpen: PropTypes.bool,
+  setNotificationIconisOpen: PropTypes.func,
 };
 
 export default Navbar;

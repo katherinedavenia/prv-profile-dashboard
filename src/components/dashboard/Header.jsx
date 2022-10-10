@@ -44,9 +44,9 @@ const Header = ({
 
 Header.propTypes = {
   avaImage: PropTypes.string,
-  setAvaImage: PropTypes.func,
-  Banner: PropTypes.string,
-  onClickSaveBanner: PropTypes.func,
+  bannerImage: PropTypes.string,
+  onAvatarUpload: PropTypes.func,
+  onBannerUpload: PropTypes.func,
   uploadBanner: PropTypes.bool,
   setUploadBannerisOpen: PropTypes.func,
 };

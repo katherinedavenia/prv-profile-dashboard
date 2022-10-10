@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 import OtpInput from 'react-otp-input';
+import PropTypes from 'prop-types';
 import useResponsive from '../../lib/useResponsive';
 
 const DisplayOTP = ({
@@ -98,6 +99,14 @@ const DisplayOTP = ({
       </Box>
     </>
   );
+};
+
+DisplayOTP.propTypes = {
+  OTP: PropTypes.string,
+  setOTP: PropTypes.func,
+  setDisplayOTPisOpen: PropTypes.func,
+  onConfirmOTP: PropTypes.func,
+  onResendOTP: PropTypes.func,
 };
 
 export default DisplayOTP;

@@ -2,8 +2,11 @@ import { AddPhotoAlternate } from '@mui/icons-material';
 import { Box, Button } from '@mui/material';
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
+import PropTypes from 'prop-types';
 
-const Banner = ({ image, onUpload, setUploadBannerisOpen, uploadBanner }) => {
+const Banner = ({
+  image, onUpload, setUploadBannerisOpen, uploadBanner
+}) => {
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
@@ -56,6 +59,13 @@ const Banner = ({ image, onUpload, setUploadBannerisOpen, uploadBanner }) => {
       </Box>
     </div>
   );
+};
+
+Banner.propTypes = {
+  image: PropTypes.string,
+  onUpload: PropTypes.func,
+  setUploadBannerisOpen: PropTypes.func,
+  uploadBanner: PropTypes.bool,
 };
 
 export default Banner;

@@ -1,7 +1,10 @@
 import React from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import {
+  Box, Button, TextField, Typography
+} from '@mui/material';
 import { AutoAwesome, CheckCircleOutline } from '@mui/icons-material';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
 const DisplayRegister = ({ formik, onRegister }) => {
   const router = useRouter();
@@ -139,6 +142,11 @@ const DisplayRegister = ({ formik, onRegister }) => {
       </Box>
     </>
   );
+};
+
+DisplayRegister.propTypes = {
+  formik: PropTypes.shape(),
+  onRegister: PropTypes.func,
 };
 
 export default DisplayRegister;

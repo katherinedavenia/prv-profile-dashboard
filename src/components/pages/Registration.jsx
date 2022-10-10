@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
-import Cookies from 'js-cookie';
 import { useSendOTP, useMatchOTP, useRegister } from '../../lib/authHooks';
 
 const AuthContainer = dynamic(() => import('../auth/AuthContainer'), {
@@ -50,7 +50,10 @@ const Registration = () => {
       const data = await sendOTP.mutateAsync(formik.values.phone);
       setUserData(data?.user);
     } catch (e) {
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 
@@ -60,21 +63,32 @@ const Registration = () => {
         userId: userData?.id,
         otpCode: otp,
       });
-      Cookies.set('accessToken', userData?.access_token);
       router.push('/');
-      alert('Register Successful! Welcome to your Dashboard');
+      toast.success('Registration Successful! Welcome to your Dashboard', {
+        position: 'top-right',
+        icon: '🥳',
+      });
     } catch (e) {
       setOTP(null);
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 
   const onResendOTP = async (otp) => {
     try {
       await matchOTP.mutateAsync(userData.id, otp);
-      alert('We have sent you another OTP code to your mobile');
+      toast.info('We have sent you another OTP code to your mobile', {
+        position: 'top-right',
+        icon: '🙏🏻',
+      });
     } catch (e) {
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 

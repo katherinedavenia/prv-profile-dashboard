@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Box, Container, LinearProgress } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useFormik } from 'formik';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 import {
   useAddBanner,
   useAddBiodata,
@@ -43,6 +45,10 @@ const Body = ({ children }) => (
     </Container>
   </Box>
 );
+
+Body.propTypes = {
+  children: PropTypes.node,
+};
 
 const LoadingScreen = () => (
   <Box>
@@ -110,7 +116,10 @@ const Dashboard = () => {
       });
       refetch();
     } catch (e) {
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 
@@ -122,7 +131,10 @@ const Dashboard = () => {
       });
       refetch();
     } catch (e) {
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 
@@ -140,7 +152,10 @@ const Dashboard = () => {
       refetch();
       setOpenEditBiodata(false);
     } catch (e) {
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 
@@ -151,7 +166,10 @@ const Dashboard = () => {
       });
       refetch();
     } catch (e) {
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 
@@ -162,7 +180,10 @@ const Dashboard = () => {
       });
       refetch();
     } catch (e) {
-      alert(e.message);
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
     }
   };
 

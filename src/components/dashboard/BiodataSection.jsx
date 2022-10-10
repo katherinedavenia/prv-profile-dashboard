@@ -1,7 +1,11 @@
 import React from 'react';
 import { Textarea } from '@mui/joy';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import {
+  Box, Button, TextField, Typography
+} from '@mui/material';
 import { Save } from '@mui/icons-material';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const BiodataSection = ({
   formik,
@@ -165,7 +169,7 @@ const BiodataSection = ({
             }}
           >
             🎂&emsp;&emsp;
-            {birthday || 'Birthday'}
+            {moment(birthday).format('D MMMM YYYY') || 'Birthday'}
           </Typography>
         ) : (
           <Box
@@ -253,5 +257,17 @@ const BiodataSection = ({
     </Box>
   </Box>
 );
+
+BiodataSection.propTypes = {
+  formik: PropTypes.shape(),
+  name: PropTypes.string,
+  hometown: PropTypes.string,
+  birthday: PropTypes.instanceOf(Date),
+  gender: PropTypes.number,
+  bio: PropTypes.string,
+  onBiodataSave: PropTypes.func,
+  openEditBiodata: PropTypes.func,
+  setOpenEditBiodata: PropTypes.func,
+};
 
 export default BiodataSection;

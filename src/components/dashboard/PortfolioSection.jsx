@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import {
+  Box, Button, TextField, Typography
+} from '@mui/material';
 import randomGradient from 'random-gradient';
 import { Add, Edit, Save } from '@mui/icons-material';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 
 const AddItemContainer = ({
   title,
@@ -52,6 +56,13 @@ const AddItemContainer = ({
     </Box>
   </Box>
 );
+
+AddItemContainer.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node,
+  onCancelButtonClick: PropTypes.func,
+  onSaveButtonClick: PropTypes.func,
+};
 
 const PortfolioSection = ({
   experience,
@@ -158,6 +169,7 @@ const PortfolioSection = ({
               <Typography
                 sx={{
                   fontSize: { xs: '14px', sm: '18px' },
+                  mt: '3x',
                   fontWeight: 400,
                   display: '-webkit-box',
                   WebkitLineClamp: 1,
@@ -174,7 +186,8 @@ const PortfolioSection = ({
                   mt: '6px',
                 }}
               >
-                {experience.starting_from} - {experience.ending_in}
+                {moment(experience.starting_from).format('D MMMM YYYY')} -{' '}
+                {moment(experience.ending_in).format('D MMMM YYYY')}
               </Typography>
             </Box>
           </Box>
@@ -327,6 +340,7 @@ const PortfolioSection = ({
               <Typography
                 sx={{
                   fontSize: { xs: '14px', sm: '18px' },
+                  mt: '3x',
                   fontWeight: 400,
                   display: '-webkit-box',
                   WebkitLineClamp: 1,
@@ -334,7 +348,7 @@ const PortfolioSection = ({
                   overflow: 'hidden',
                 }}
               >
-                Graduated
+                Graduated at:
               </Typography>
               <Typography
                 sx={{
@@ -343,7 +357,7 @@ const PortfolioSection = ({
                   mt: '6px',
                 }}
               >
-                {education.graduation_time}
+                {moment(education.graduation_time).format('D MMMM YYYY')}
               </Typography>
             </Box>
           </Box>
@@ -401,6 +415,21 @@ const PortfolioSection = ({
       </Box>
     </Box>
   );
+};
+
+PortfolioSection.propTypes = {
+  experience: PropTypes.shape({
+    company_name: PropTypes.string,
+    starting_from: PropTypes.instanceOf(Date),
+    ending_in: PropTypes.instanceOf(Date),
+  }),
+  education: PropTypes.shape({
+    school_name: PropTypes.string,
+    graduation_time: PropTypes.instanceOf(Date),
+  }),
+  formik: PropTypes.shape(),
+  onSaveExperience: PropTypes.func,
+  onSaveEducation: PropTypes.func,
 };
 
 export default PortfolioSection;

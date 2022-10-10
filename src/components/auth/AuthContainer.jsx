@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Container, TextField, Typography, Button } from '@mui/material';
+import { Box, Container } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const AuthContainer = ({ children }) => (
   <Box
@@ -38,4 +39,9 @@ const AuthContainer = ({ children }) => (
     </Container>
   </Box>
 );
+
+AuthContainer.propTypes = {
+  children: PropTypes.node,
+};
+
 export default AuthContainer;
