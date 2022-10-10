@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[linkedin]: https://www.linkedin.com/in/katherine-davenia/
 
-## Getting Started
+## Oi Hello there! 🚀✨<img src="https://raw.githubusercontent.com/alexandre-abrioux/alexandre-abrioux/master/wave.gif" width="30px">
 
-First, run the development server:
+### This is a simple User Authentication and Profile Dashboard created using [Next.js](https://www.nextjs.org/)!
+
+🎉 These are the current features:
+- Login & Registration
+- OTP Message Verification
+- Profile Dashboard Editing
+
+If you wanna play around with this simple overview, this is how you run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+npx lcp --proxyUrl http://pretest-qa.dcidev.id # or yarn lcp --proxyUrl http://pretest-qa.dcidev.id
+* running on PORT 8010
+```
+then
+```bash
+npm run dev # or yarn dev
+* running on PORT 3000
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You should also totally modify and improve what I've already built! 🦾
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 🔨 Resources
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+I used [http://pretest-qa.dcidev.id/](http://pretest-qa.dcidev.id/documentation/v1) API for this project. I also used [```local-cors-proxy```](https://github.com/garmeeh/local-cors-proxy) as a simple proxy to bypass CORS issues.
 
-## Learn More
+To learn more about the stacks I used, take a look at the following resources:
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js features and API.
+- [React Query Documentation](https://react-query-v3.tanstack.com/overview) - Server state and cache management data-fetching library.
+- [Material UI Documentation](https://mui.com/material-ui/getting-started/overview/) - Material UI for components and styling.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Let's connect on Linkedin! [<img alt="Linkedin" src="https://img.shields.io/badge/linkedin-blue?style=social&logo=linkedin">][linkedin]. Cheers! 🍻
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
