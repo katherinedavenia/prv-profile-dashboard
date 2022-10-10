@@ -26,7 +26,7 @@ const Navbar = ({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          height: '60px',
+          height: { xs: '80px', sm: '60px' },
           px: { sm: '24px', lg: '50px' },
         }}
       >
@@ -42,19 +42,20 @@ const Navbar = ({
             sx={{
               fontWeight: 600,
               color: '#475266',
-              fontSize: { xs: '20px', sm: '22px' },
+              fontSize: { xs: '18px', sm: '22px' },
+              pr: { xs: '60px', sm: 0 },
             }}
           >
             {name ? `Welcome, ${name}!` : 'Welcome!'}
+            <AutoAwesome
+              sx={{
+                ml: '7px',
+                width: '24px',
+                height: 'auto',
+                color: '#475266',
+              }}
+            />
           </Typography>
-          <AutoAwesome
-            sx={{
-              ml: '7px',
-              width: '24px',
-              height: 'auto',
-              color: '#475266',
-            }}
-          />
         </Box>
         <Box
           sx={{ position: 'relative', display: 'flex', flexDirection: 'row' }}
@@ -130,32 +131,13 @@ const Navbar = ({
                   fontSize: '14px',
                   backgroundColor: 'white',
                   p: '14px',
-                  width: '450px',
-                  textAlign: 'start',
+                  width: '400px',
+                  textAlign: 'center',
                   border: '1px solid gainsboro',
                   borderBottom: '1px solid gainsboro',
                 }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                unde tenetur voluptatibus accusamus, nulla dolores quibusdam
-                veniam repudiandae harum velit? Minus deleniti nulla natus
-                tempore impedit officia doloribus voluptatum aliquid!
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: '14px',
-                  backgroundColor: 'white',
-                  p: '14px',
-                  width: '450px',
-                  textAlign: 'start',
-                  border: '1px solid gainsboro',
-                  borderBottom: '1px solid gainsboro',
-                }}
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                unde tenetur voluptatibus accusamus, nulla dolores quibusdam
-                veniam repudiandae harum velit? Minus deleniti nulla natus
-                tempore impedit officia doloribus voluptatum aliquid!
+                Notifications are not currently available 😢
               </Typography>
             </Box>
           )}

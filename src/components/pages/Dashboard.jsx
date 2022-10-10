@@ -3,8 +3,8 @@ import { Box, Container, LinearProgress } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useFormik } from 'formik';
 import {
+  useAddBanner,
   useAddBiodata,
-  useAddCoverBanner,
   useAddEducation,
   useAddExperience,
   useAddProfilePicture,
@@ -62,7 +62,7 @@ const LoadingScreen = () => (
 );
 
 const Dashboard = () => {
-  const [uploadCoverBannerisOpen, setUploadCoverBannerisOpen] = useState(false);
+  const [uploadBannerisOpen, setUploadBannerisOpen] = useState(false);
   const [profileIconisOpen, setProfileIconisOpen] = useState(false);
   const [notificationIconisOpen, setNotificationIconisOpen] = useState(false);
 
@@ -71,12 +71,12 @@ const Dashboard = () => {
   const addEducation = useAddEducation();
   const addExperience = useAddExperience();
   const addBiodata = useAddBiodata();
-  const addCoverBanner = useAddCoverBanner();
+  const addBanner = useAddBanner();
   const addProfilePicture = useAddProfilePicture();
 
   const onContainerClick = () => {
-    if (uploadCoverBannerisOpen) {
-      setUploadCoverBannerisOpen(false);
+    if (uploadBannerisOpen) {
+      setUploadBannerisOpen(false);
     }
     if (profileIconisOpen) {
       setProfileIconisOpen(false);
@@ -98,7 +98,6 @@ const Dashboard = () => {
       endingIn: profile?.user?.ending_in,
       schoolName: profile?.user?.school_name,
       graduationTime: profile?.user?.graduation_time,
-      coverBanner: null,
     },
   });
 
@@ -156,9 +155,9 @@ const Dashboard = () => {
     }
   };
 
-  const handleCoverBanner = async (images) => {
+  const onBannerUpload = async (images) => {
     try {
-      await addCoverBanner.mutateAsync({
+      await addBanner.mutateAsync({
         image: images[0],
       });
       refetch();
@@ -181,12 +180,12 @@ const Dashboard = () => {
             setNotificationIconisOpen={setNotificationIconisOpen}
           />
           <Header
+            bannerImage={profile?.user?.cover_picture?.url}
+            uploadBannerisOpen={uploadBannerisOpen}
+            setUploadBannerisOpen={setUploadBannerisOpen}
+            onBannerUpload={onBannerUpload}
             avaImage={profile?.user?.user_picture?.picture.url}
-            coverBanner={profile?.user?.cover_picture?.url}
-            uploadCoverBannerisOpen={uploadCoverBannerisOpen}
-            setUploadCoverBannerisOpen={setUploadCoverBannerisOpen}
             onAvatarUpload={onAvatarUpload}
-            handleCoverBanner={handleCoverBanner}
           />
           <Body>
             <BiodataSection

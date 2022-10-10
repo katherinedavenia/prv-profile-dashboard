@@ -2,21 +2,21 @@ import React from 'react';
 import { Box, Container } from '@mui/material';
 import PropTypes from 'prop-types';
 import Avatar from './Avatar';
-import CoverBanner from './CoverBanner';
+import Banner from './Banner';
 
 const Header = ({
   avaImage,
-  coverBanner,
+  bannerImage,
   onAvatarUpload,
-  handleCoverBanner,
-  uploadCoverBanner,
-  setUploadCoverBannerisOpen,
+  onBannerUpload,
+  uploadBanner,
+  setUploadBannerisOpen,
 }) => (
   <Box
     sx={{
       height: '300px',
-      backgroundImage: coverBanner
-        ? `url('${coverBanner}')`
+      backgroundImage: bannerImage
+        ? `url('${bannerImage}')`
         : 'linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -32,11 +32,11 @@ const Header = ({
       }}
     >
       <Avatar onUpload={onAvatarUpload} image={avaImage} />
-      <CoverBanner
-        handleCoverBanner={handleCoverBanner}
-        setUploadCoverBannerisOpen={setUploadCoverBannerisOpen}
-        uploadCoverBanner={uploadCoverBanner}
-        image={coverBanner}
+      <Banner
+        onUpload={onBannerUpload}
+        setUploadBannerisOpen={setUploadBannerisOpen}
+        uploadBanner={uploadBanner}
+        image={bannerImage}
       />
     </Container>
   </Box>
@@ -45,10 +45,10 @@ const Header = ({
 Header.propTypes = {
   avaImage: PropTypes.string,
   setAvaImage: PropTypes.func,
-  coverBanner: PropTypes.string,
-  onClickSaveCoverBanner: PropTypes.func,
-  uploadCoverBanner: PropTypes.bool,
-  setUploadCoverBannerisOpen: PropTypes.func,
+  Banner: PropTypes.string,
+  onClickSaveBanner: PropTypes.func,
+  uploadBanner: PropTypes.bool,
+  setUploadBannerisOpen: PropTypes.func,
 };
 
 export default Header;

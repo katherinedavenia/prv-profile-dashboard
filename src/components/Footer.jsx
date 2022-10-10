@@ -12,13 +12,12 @@ const Footer = () => (
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'end',
           alignItems: 'center',
           height: '100px',
           px: { sm: '24px', lg: '50px' },
         }}
       >
-        <Box>a</Box>
         <Box onClick={() => window.open('https://docs.nextjs.org/')}>
           <Typography
             sx={{

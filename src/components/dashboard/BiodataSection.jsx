@@ -59,8 +59,8 @@ const BiodataSection = ({
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
-          mt: { xs: '14px', sm: '2px' },
+          flexDirection: { xs: 'column', md: 'row' },
+          mt: { xs: '16px', md: '2px' },
         }}
       >
         {!openEditBiodata ? (
@@ -69,7 +69,7 @@ const BiodataSection = ({
               fontSize: { xs: '16px', sm: '18px', md: '20px' },
               fontWeight: 400,
               color: '#969696',
-              mt: { xs: '2px', sm: 0 },
+              mt: { xs: '2px', md: 0 },
               mr: { sm: '24px' },
             }}
           >
@@ -92,8 +92,9 @@ const BiodataSection = ({
               fontSize: { xs: '16px', sm: '18px', md: '20px' },
               fontWeight: 400,
               color: '#969696',
-              mt: { xs: '2px', sm: 0 },
+              mt: { xs: '2px', md: 0 },
               mr: { sm: '24px' },
+              textTransform: 'capitalize',
             }}
           >
             👋🏼&emsp;&emsp;
@@ -106,11 +107,13 @@ const BiodataSection = ({
               color: '#808080',
               display: 'flex',
               flexDirection: 'row',
+              justifyContent: 'start',
+              alignItems: 'center',
               mr: '12px',
-              mt: '5px',
+              mt: { xs: '14px', md: '5px' },
             }}
           >
-            👋🏼
+            <Typography sx={{ fontSize: '16px' }}>👋🏼&emsp;Gender</Typography>
             <Button
               onClick={() => formik.setFieldValue('gender', 0)}
               sx={{
@@ -118,10 +121,10 @@ const BiodataSection = ({
                 backgroundColor:
                   formik.values.gender === 0 ? 'lightblue' : 'whitesmoke',
                 minHeight: 0,
-                height: '25px',
-                p: '0 14px',
+                height: '30px',
+                p: '7px 14px',
                 textTransform: 'none',
-                fontSize: '14px',
+                fontSize: '16px',
                 ml: '15px',
                 '&:hover': {
                   backgroundColor: 'lightblue',
@@ -137,11 +140,11 @@ const BiodataSection = ({
                 backgroundColor:
                   formik.values.gender === 1 ? 'mistyrose' : 'whitesmoke',
                 minHeight: 0,
-                height: '25px',
-                p: '0 14px',
+                height: '30px',
+                p: '7px 14px',
                 textTransform: 'none',
-                fontSize: '14px',
-                ml: '5px',
+                fontSize: '16px',
+                ml: '7px',
                 '&:hover': {
                   backgroundColor: 'mistyrose',
                 },
@@ -157,7 +160,7 @@ const BiodataSection = ({
               fontSize: { xs: '16px', sm: '18px', md: '20px' },
               fontWeight: 400,
               color: '#969696',
-              mt: { xs: '2px', sm: 0 },
+              mt: { xs: '2px', md: 0 },
               mr: { sm: '24px' },
             }}
           >
@@ -171,11 +174,13 @@ const BiodataSection = ({
               color: '#808080',
               display: 'flex',
               flexDirection: 'row',
+              justifyContent: 'start',
+              alignItems: 'center',
               mr: '12px',
               mt: '5px',
             }}
           >
-            🎂
+            <Typography sx={{ fontSize: '16px' }}>🎂&emsp;Birthday</Typography>
             <TextField
               id="standard-date-input"
               type="date"
@@ -196,7 +201,7 @@ const BiodataSection = ({
         )}
       </Box>
     </Box>
-    <Box sx={{ p: { xs: '14px 0 50px', sm: '20px 0 50px' } }}>
+    <Box sx={{ p: { xs: '14px 0 50px', md: '20px 0 50px' } }}>
       <Box onClick={() => setOpenEditBiodata(true)}>
         {!openEditBiodata ? (
           <Typography sx={{ fontSize: { xs: '14px', sm: '16px' } }}>
@@ -205,7 +210,8 @@ const BiodataSection = ({
         ) : (
           <Textarea
             sx={{
-              height: '150px',
+              minHeight: '150px',
+              height: '100%',
               fontSize: { xs: '14px', sm: '16px' },
             }}
             label="outlined"
@@ -222,7 +228,7 @@ const BiodataSection = ({
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'end',
-            mt: '10px',
+            mt: '20px',
           }}
         >
           <Button

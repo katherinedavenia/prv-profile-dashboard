@@ -66,7 +66,7 @@ export const useAddBiodata = () => {
   return mutation;
 };
 
-export const useAddCoverBanner = () => {
+export const useAddBanner = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation(

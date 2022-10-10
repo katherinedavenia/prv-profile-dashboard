@@ -3,16 +3,11 @@ import { Box, Button } from '@mui/material';
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
 
-const CoverBanner = ({
-  image,
-  handleCoverBanner,
-  setUploadCoverBannerisOpen,
-  uploadCoverBanner,
-}) => {
+const Banner = ({ image, onUpload, setUploadBannerisOpen, uploadBanner }) => {
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
     onDrop: (acceptedFiles) => {
-      handleCoverBanner(acceptedFiles);
+      onUpload(acceptedFiles);
     },
   });
 
@@ -20,7 +15,7 @@ const CoverBanner = ({
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       <Box
-        onClick={() => setUploadCoverBannerisOpen(!uploadCoverBanner)}
+        onClick={() => setUploadBannerisOpen(!uploadBanner)}
         sx={{
           position: 'absolute',
           bottom: '15px',
@@ -63,4 +58,4 @@ const CoverBanner = ({
   );
 };
 
-export default CoverBanner;
+export default Banner;
