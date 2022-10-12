@@ -12,7 +12,7 @@
 If you wanna play around with this simple overview, this is how you run the development server:
 
 ```bash
-npx lcp --proxyUrl http://pretest-qa.dcidev.id # or yarn lcp --proxyUrl http://pretest-qa.dcidev.id
+npm run proxy # or yarn proxy
 * running on PORT 8010
 ```
 then

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "proxy": "npx lcp --proxyUrl http://pretest-qa.dcidev.id",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
