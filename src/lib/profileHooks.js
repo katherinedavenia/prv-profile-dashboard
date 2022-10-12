@@ -111,3 +111,24 @@ export const useAddProfilePicture = () => {
   );
   return mutation;
 };
+
+export const useAddAlbumImage = () => {
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(
+    async ({ image }) => {
+      const formData = new FormData();
+      formData.append('image', image);
+
+      await api.post('/api/v1/uploads/profile', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+    },
+    {
+      onSuccess: () => queryClient.invalidateQueries(['profile']),
+    },
+  );
+  return mutation;
+};

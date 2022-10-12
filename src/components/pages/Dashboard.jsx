@@ -11,6 +11,7 @@ import {
   useAddExperience,
   useAddProfilePicture,
   useGetProfile,
+  useAddAlbumImage
 } from '../../lib/profileHooks';
 import Header from '../dashboard/Header';
 import BiodataSection from '../dashboard/BiodataSection';
@@ -79,6 +80,7 @@ const Dashboard = () => {
   const addBiodata = useAddBiodata();
   const addBanner = useAddBanner();
   const addProfilePicture = useAddProfilePicture();
+  const addAlbumImage = useAddAlbumImage();
 
   const onContainerClick = () => {
     if (uploadBannerisOpen) {
@@ -187,6 +189,20 @@ const Dashboard = () => {
     }
   };
 
+  const onAlbumUpload = async (images) => {
+    try {
+      await addAlbumImage.mutateAsync({
+        image: images[0],
+      });
+      refetch();
+    } catch (e) {
+      toast.error(e.message || 'Server Error', {
+        position: 'top-right',
+        icon: '😵',
+      });
+    }
+  };
+
   return (
     <Box onClick={onContainerClick}>
       {isLoading ? (
@@ -231,6 +247,7 @@ const Dashboard = () => {
               albumImages={profile.user.user_pictures.map(
                 (userPicture) => userPicture.picture.url,
               )}
+              onAlbumUpload={onAlbumUpload}
             />
           </Body>
           <Footer />
