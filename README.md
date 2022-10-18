@@ -1,6 +1,6 @@
 [linkedin]: https://www.linkedin.com/in/katherine-davenia/
 
-## Oi Hello there! 🚀✨<img src="https://raw.githubusercontent.com/alexandre-abrioux/alexandre-abrioux/master/wave.gif" width="30px">
+## Oi Hello there! 🚀✨👋🏼
 
 ### This is a simple User Authentication and Profile Dashboard created using [Next.js](https://www.nextjs.org/)!
 
